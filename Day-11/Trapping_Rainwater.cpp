@@ -14,7 +14,7 @@ for(int i=1;i<n;i++){
 cout<<endl;
 for(int i=n-2;i>=0;i--){
     right_max[i]=max(right_max[i+1],height[i+1]);
-    // cout<<(right_max[i])<<" ";
+    // cout<<(right_max[i])<<" "; 
 }
 int water_trapped=0;
 for(int i=0;i<n;i++){
