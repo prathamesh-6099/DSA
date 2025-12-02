@@ -52,7 +52,7 @@ bool sudokusolver(int sudoku[9][9],int row,int col){
     int nextCol=col+1;
     if(nextCol==9){
         nextRow=row+1;
-        nextCol=0;
+        nextCol=0;   
     }
 
     if(sudoku[row][col]!=0){

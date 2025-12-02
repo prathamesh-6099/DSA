@@ -14,12 +14,9 @@ void permutaion(string str,string ans){
          string next_str=str.substr(0,i)+ str.substr(i+1,sz-i-1);
         permutaion(next_str,ans+chr);
     }
-}
-
 int main(){
 string str="abc";
 string ans="";
-permutaion(str,ans);
-
-    return 0;
-}
+permutaion(str,ans);                                   
+    return  0;
+} 
