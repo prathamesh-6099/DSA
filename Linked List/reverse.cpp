@@ -120,20 +120,25 @@ public:
         tail=temp;
     }
 
-    int searchItr(int val){
-        int  idx=0;
-        Node* temp= head;
+    void reverse(){
+        Node* curr= head;
+        Node*prev =NULL;
 
-        while(temp != NULL){
-            if(temp->data==val){
-                return idx;
-            }
-            temp=temp->next;
-            idx++;
+        while(curr!= NULL){
+            Node* next=curr->next;
+            curr->next=prev;
+
+            // updation
+
+            prev=curr;
+            curr=next;
+
         }
-
-        return -1;
+        head=prev;
     }
+
+    
+   
 };
 
 int main(){
@@ -151,6 +156,7 @@ int main(){
     l1.pop_front();
     l1.pop_back();
     l1.printList();
-    cout<<l1.searchItr(100);
+    l1.reverse();
+    l1.printList();
     return 0;
 }

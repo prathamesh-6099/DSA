@@ -120,20 +120,28 @@ public:
         tail=temp;
     }
 
-    int searchItr(int val){
-        int  idx=0;
-        Node* temp= head;
+    int helper(Node* temp,int key){
 
-        while(temp != NULL){
-            if(temp->data==val){
-                return idx;
-            }
-            temp=temp->next;
-            idx++;
+        if(temp==NULL){
+            return -1;
+        }
+        if(temp->data==key){
+            return 0;
         }
 
-        return -1;
+        int idx=helper(temp->next,key);
+        if(idx==-1){
+            return -1;
+        }
+
+        return idx+1;
     }
+
+    int searchRec(int key){
+        return helper(head,key);
+    }
+
+   
 };
 
 int main(){
@@ -151,6 +159,6 @@ int main(){
     l1.pop_front();
     l1.pop_back();
     l1.printList();
-    cout<<l1.searchItr(100);
+    cout<<l1.searchRec(100);
     return 0;
 }

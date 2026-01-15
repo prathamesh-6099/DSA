@@ -120,20 +120,31 @@ public:
         tail=temp;
     }
 
-    int searchItr(int val){
-        int  idx=0;
-        Node* temp= head;
+    int size(){
+        int sz=0;
+        Node* temp=head;
 
-        while(temp != NULL){
-            if(temp->data==val){
-                return idx;
-            }
+
+        while(temp!= NULL){
             temp=temp->next;
-            idx++;
+            sz++;
         }
-
-        return -1;
+        return sz;
     }
+
+    void removeNth(int n){
+        Node* prev=head;
+
+        for(int i=1;i<(size()-n);i++){
+            prev=prev->next;
+
+        }
+        Node* toDel=prev->next;
+        prev->next=prev->next->next;
+        cout<<"Node Deleted"<<toDel->data<<endl;
+    }
+
+    
 };
 
 int main(){
@@ -151,6 +162,8 @@ int main(){
     l1.pop_front();
     l1.pop_back();
     l1.printList();
-    cout<<l1.searchItr(100);
+
+    l1.removeNth(2);
+    l1.printList();
     return 0;
 }
